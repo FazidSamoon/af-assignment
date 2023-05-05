@@ -1,7 +1,7 @@
-import { deleteBlog, getAllBlogs } from "@/api/blogs/blogs";
+import { deleteBlog, deleteFoodBlog, getAllBlogs, getAllFoodBlogs } from "@/api/blogs/blogs";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { getAllFoodBlogs } from "@/api/food/food";
+
 
 const FoodBlogComp = () => {
   const { push } = useRouter();
@@ -13,7 +13,7 @@ const FoodBlogComp = () => {
   }, []);
 
   const handleDeleteBlog = (id) => {
-    deleteBlog(id).then((response) => {
+    deleteFoodBlog(id).then((response) => {
       if (!response.success) alert(response.message);
       else {
         push("/profile");
@@ -54,7 +54,7 @@ const FoodBlogComp = () => {
                 <td class="px-6 py-4">
                   <button
                     className="bg-primary-color text-white px-4 py-2 rounded-md"
-                    onClick={() => push(`blogs/edit/${blog._id}`)}
+                    onClick={() => push(`blogs/edit/food/${blog._id}`)}
                   >
                     Edit
                   </button>

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import SingleBlog from "./SingleBlog";
-import { getAllBlogs } from "@/api/blogs/blogs";
+import { getAllBlogs, getAllFoodBlogs } from "@/api/blogs/blogs";
 
 const FoodBlogs = () => {
   const [blogs, setBlogs] = React.useState([]);
   useEffect(() => {
-    getAllBlogs().then((response) => {
+    getAllFoodBlogs().then((response) => {
       setBlogs(response.data);
     });
   }, []);

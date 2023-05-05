@@ -16,7 +16,7 @@ const FoodManagement = () => {
         <Button
           text={"Add Blogs"}
           onClick={() => {
-            push("blogs/add-blogs");
+            push("blogs/add-blogs/food");
           }}
         />
 
