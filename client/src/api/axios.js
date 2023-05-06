@@ -21,7 +21,7 @@ export const apiRequest = async (request) => {
       success: true,
     }))
     .catch((error) => {
-      const message = error.response.data.message;
+      const message = error?.response?.data?.message;
       return {
         ...error.response,
         success: false,

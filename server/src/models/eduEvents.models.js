@@ -29,6 +29,14 @@ const eduEventsSchema = new mongoose.Schema({
   link: {
     type: String,
   },
+  venue: {
+    type: String,
+    trim: true,
+  },
+  speaker: {
+    type: String,
+    trim: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

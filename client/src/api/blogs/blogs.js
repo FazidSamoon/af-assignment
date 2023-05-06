@@ -15,3 +15,7 @@ export const updateBlog = async (id, req) => {
 export const getBlogById = async (id) => {
   return await apiRequest(() => axiosInstance.get(`education/blogs/${id}`));
 };
+
+export const deleteBlog = async (id) => {
+  return await apiRequest(() => axiosInstance.delete(`education/blogs/${id}`));
+};

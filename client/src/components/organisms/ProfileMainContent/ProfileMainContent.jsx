@@ -4,7 +4,7 @@ import FoodManagement from "../FoodManagement/FoodManagement";
 
 const ProfileMainContent = ({ selectedMenu }) => {
   return (
-    <div>
+    <div className="w-full">
       {selectedMenu === "Education" ? <EduManagement /> : <FoodManagement />}
     </div>
   );

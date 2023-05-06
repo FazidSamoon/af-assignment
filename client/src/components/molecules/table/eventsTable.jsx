@@ -1,18 +1,18 @@
-import { deleteBlog, getAllBlogs } from "@/api/blogs/blogs";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { deleteEvents, getAllEvents } from "@/api/events/events";
 
-const TableComp = () => {
+const EventTable = () => {
   const { push } = useRouter();
-  const [blogs, setBlogs] = useState([]);
+  const [events, setEvents] = useState([]);
   useEffect(() => {
-    getAllBlogs().then((response) => {
-      setBlogs(response.data);
+    getAllEvents().then((response) => {
+        setEvents(response.data);
     });
   }, []);
 
-  const handleDeleteBlog = (id) => {
-    deleteBlog(id).then((response) => {
+  const handleDeleteEvent = (id) => {
+    deleteEvents(id).then((response) => {
       if (!response.success) alert(response.message);
       else {
         push("/profile");
@@ -28,10 +28,16 @@ const TableComp = () => {
               Title
             </th>
             <th scope="col" class="px-6 py-3">
-              Author
+              Description
             </th>
             <th scope="col" class="px-6 py-3">
-              Tags
+              Venue
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Date
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Time
             </th>
             <th scope="col" class="px-6 py-3">
               Actions
@@ -39,28 +45,30 @@ const TableComp = () => {
           </tr>
         </thead>
         <tbody>
-          {blogs.map((blog) => {
+          {events.map((event) => {
             return (
               <tr class="bg-secondary-color border-b">
                 <th
                   scope="row"
                   class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  {blog.title}
+                  {event.title}
                 </th>
-                <td class="px-6 py-4">{blog.author}</td>
-                <td class="px-6 py-4">{blog.tags}</td>
+                <td class="px-6 py-4">{event.description}</td>
+                <td class="px-6 py-4">{event.venue}</td>
+                <td class="px-6 py-4">{event.date}</td>
+                <td class="px-6 py-4">{event.time}</td>
                 <td class="px-6 py-4">
                   <button
                     className="bg-primary-color text-white px-4 py-2 rounded-md"
-                    onClick={() => push(`blogs/edit/${blog._id}`)}
+                    onClick={() => push(`event/edit/${event._id}`)}
                   >
                     Edit
                   </button>
 
                   <button
                     className="bg-primary-color text-white px-4 py-2 rounded-md"
-                    onClick={() => handleDeleteBlog(blog._id)}
+                    onClick={() => handleDeleteEvent(event._id)}
                   >
                     Delete
                   </button>
@@ -74,4 +82,4 @@ const TableComp = () => {
   );
 };
 
-export default TableComp;
+export default EventTable;

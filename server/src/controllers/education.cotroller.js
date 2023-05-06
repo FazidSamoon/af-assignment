@@ -1,5 +1,6 @@
 import { badRequest } from "../errors/badRequest";
 import eduBlogsModel from "../models/eduBlogs.models";
+import eduEventsModel from "../models/eduEvents.models";
 import { makeResponse } from "../utils/response";
 
 export const getAllEducationalBlogs = async (req, res, next) => {
@@ -43,6 +44,7 @@ export const updateEducationalBlogs = async (req, res, next) => {
 };
 
 export const deleteEducationalBlogs = async (req, res, next) => {
+    console.log(req.params.id);
     try {
         const response = await eduBlogsModel.findByIdAndDelete(req.params.id);
         if (!response) makeResponse({ res, status: 500, message: "Blog deletion failed" });
@@ -64,12 +66,52 @@ export const deleteVolunteerById = async (req, res, next) => {};
 
 export const requestForVolunteer = async (req, res, next) => {};
 
-export const createEduEvent = async (req, res, next) => {};
+export const createEduEvent = async (req, res, next) => {
+    try {
+        const response = await eduEventsModel.create(req.body);
+        if (!response) makeResponse({ res, status: 500, message: "Event creation failed" });
+        makeResponse({ res, status: 200, data: response, message: "Event created" });
+    } catch (error) {
+        throw new badRequest(error.message);
+    }
+};
 
-export const getAllEduEvents = async (req, res, next) => {};
+export const getAllEduEvents = async (req, res, next) => {
+    try {
+        const response = await eduEventsModel.find({});
+        if (!response) makeResponse({ res, status: 500, message: "No events found" });
+        makeResponse({ res, status: 200, data: response, message: "Events found" });
+    } catch (error) {
+        throw new badRequest(error.message);
+    }
+};
 
-export const getEduEventById = async (req, res, next) => {};
+export const getEduEventById = async (req, res, next) => {
+    try {
+        const response = await eduEventsModel.findById(req.params.id);
+        if (!response) makeResponse({ res, status: 500, message: "No event found" });
+        makeResponse({ res, status: 200, data: response, message: "Event found" });
+    } catch (error) {
+        throw new badRequest(error.message);
+    }
+};
 
-export const updateEduEventById = async (req, res, next) => {};
+export const updateEduEventById = async (req, res, next) => {
+    try {
+        const response = await eduEventsModel.findByIdAndUpdate(req.params.id, req.body);
+        if (!response) makeResponse({ res, status: 500, message: "Blog deletion failed" });
+        makeResponse({ res, status: 200, data: response, message: "Blog deleted" });
+    } catch (error) {
+        throw new badRequest(error.message);
+    }
+};
 
-export const deleteEduEventById = async (req, res, next) => {};
+export const deleteEduEventById = async (req, res, next) => {
+    try {
+        const response = await eduEventsModel.findByIdAndDelete(req.params.id);
+        if (!response) makeResponse({ res, status: 500, message: "Blog deletion failed" });
+        makeResponse({ res, status: 200, data: response, message: "Blog deleted" });
+    } catch (error) {
+        throw new badRequest(error.message);
+    }
+};

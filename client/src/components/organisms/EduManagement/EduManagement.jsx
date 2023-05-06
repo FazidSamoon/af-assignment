@@ -2,6 +2,7 @@ import Button from "@/components/atoms/Button/Button";
 import React from "react";
 import { useRouter } from "next/navigation";
 import TableComp from "@/components/molecules/table/table";
+import EventTable from "@/components/molecules/table/eventsTable";
 
 const EduManagement = () => {
   const { push } = useRouter();
@@ -13,7 +14,6 @@ const EduManagement = () => {
         <span className="text-xl font-semibold mb-5 ">Manage all blogs</span>
         <Button
           text={"Add Blogs"}
-          fullWidth={false}
           onClick={() => {
             push("blogs/add-blogs");
           }}
@@ -21,7 +21,20 @@ const EduManagement = () => {
 
         <TableComp />
       </div>
+
+      <div className="mt-10 flex flex-col w-full">
+      <span className="text-xl font-semibold mb-5 ">Manage all Events</span>
+        <Button
+          text={"Add Event"}
+          onClick={() => {
+            push("blogs/add-event");
+          }}
+        />
+
+        <EventTable />
+      </div>
     </div>
+    
   );
 };
 
