@@ -19,3 +19,7 @@ export const getBlogById = async (id) => {
 export const deleteBlog = async (id) => {
   return await apiRequest(() => axiosInstance.delete(`education/blogs/${id}`));
 };
+
+
+//foodBlogs
+
