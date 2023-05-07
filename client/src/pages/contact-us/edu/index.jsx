@@ -2,6 +2,7 @@ import React from 'react'
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
+import { sendEmail } from '@/api/email/email';
 
 const index = () => {
     const { push } = useRouter();
@@ -21,7 +22,7 @@ const index = () => {
           concern: values.concern,
         };
   
-        createBlog(data).then((response) => {
+        sendEmail(data).then((response) => {
           if (!response.success) alert(response.message);
           else {
             push("/profile");

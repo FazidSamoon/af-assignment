@@ -16,7 +16,7 @@ const EduBlogs = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
               {
-                blogs?.map((blog) => {
+                blogs && blogs?.map((blog) => {
                   return (
                     <SingleBlog blog={blog} />
                   )
