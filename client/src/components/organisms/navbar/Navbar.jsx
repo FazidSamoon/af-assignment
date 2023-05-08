@@ -1,49 +1,49 @@
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
-import { TiThMenu } from "react-icons/ti";
-import Link from "next/link";
-import Button from "@/components/atoms/Button/Button";
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
+import { TiThMenu } from 'react-icons/ti';
+import Link from 'next/link';
+import Button from '@/components/atoms/Button/Button';
 
 const navItems = [
   {
-    name: "Home",
-    path: "/",
+    name: 'Home',
+    path: '/',
   },
   {
-    name: "Education",
-    path: "/education",
+    name: 'Education',
+    path: '/education',
   },
   {
-    name: "Food",
-    path: "/food",
+    name: 'Food',
+    path: '/food',
   },
   {
-    name: "Healthcare",
-    path: "/healthcare",
+    name: 'Healthcare',
+    path: '/healthcare',
   },
   {
-    name: "Employement",
-    path: "/employement",
+    name: 'Employment',
+    path: '/employment',
   },
 ];
 
 const Navbar = () => {
   const [burgerNav, setBurgerNav] = useState(false);
-  const [selectedItem, setSelectedItem] = useState("Home");
+  const [selectedItem, setSelectedItem] = useState('Home');
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setUser(JSON.parse(localStorage?.getItem("user")));
+      setUser(JSON.parse(localStorage?.getItem('user')));
     }
   }, []);
-  
+
   return (
     <div className="flex">
       <div className="container mx-auto flex items-center ">
         <div className="flex flex-row items-center">
-          <Image src={"/logo.png"} alt="logo" height={100} width={100} />
+          <Image src={'/logo.png'} alt="logo" height={100} width={100} />
           <span className="font-bold text-xl text-secondary-color">
             <span className="text-primary-color">CHARITY</span> LIFE
           </span>
@@ -56,8 +56,8 @@ const Navbar = () => {
                   key={index}
                   className={`${
                     item.name === selectedItem
-                      ? "text-primary-color"
-                      : "text-[#3E3E3E]"
+                      ? 'text-primary-color'
+                      : 'text-[#3E3E3E]'
                   } font-medium`}
                   onClick={() => setSelectedItem(item.name)}
                 >
@@ -86,7 +86,7 @@ const Navbar = () => {
 
         <TiThMenu
           className={`${
-            !burgerNav ? "flex" : "hidden"
+            !burgerNav ? 'flex' : 'hidden'
           } lg:hidden h-8 w-8 right-0 fixed mr-8 text-primary-color`}
           onClick={() => setBurgerNav(true)}
         />
@@ -95,7 +95,7 @@ const Navbar = () => {
       <div>
         <nav
           className={`${
-            burgerNav ? "pointer-events-auto" : "pointer-events-none opacity-0"
+            burgerNav ? 'pointer-events-auto' : 'pointer-events-none opacity-0'
           } bg-primary-color backdrop-blur-lg h-full w-full flex flex-col items-center justify-between py-4 fixed top-0 z-50 left-0 transition-all ease-in-out duration-300`}
         >
           <AiOutlineClose
@@ -113,8 +113,8 @@ const Navbar = () => {
                     <span
                       className={`${
                         item.name === selectedItem
-                          ? "text-white"
-                          : "text-[#3E3E3E]"
+                          ? 'text-white'
+                          : 'text-[#3E3E3E]'
                       } font-medium text-2xl`}
                       onClick={() => setSelectedItem(item.name)}
                     >

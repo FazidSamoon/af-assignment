@@ -1,15 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000/api/v1/',
+  baseURL: 'http://localhost:5000/api/v1/',
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 });
 
 axiosInstance.interceptors.request.use((config) => {
   config.headers.Authorization = `Bearer ${
-    JSON.parse(localStorage.getItem("user"))?.token
+    JSON.parse(localStorage.getItem('user'))?.token
   }`;
   return config;
 });

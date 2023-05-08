@@ -1,11 +1,14 @@
-import React from "react";
-import EduManagement from "../EduManagement/EduManagement";
-import FoodManagement from "../FoodManagement/FoodManagement";
+import React from 'react';
+import EduManagement from '../EduManagement/EduManagement';
+import FoodManagement from '../FoodManagement/FoodManagement';
+import EmployementManagement from '../EmployementManagement/EmployementManagement';
 
 const ProfileMainContent = ({ selectedMenu }) => {
   return (
-    <div className="w-full">
-      {selectedMenu === "Education" ? <EduManagement /> : <FoodManagement />}
+    <div>
+      {selectedMenu === 'Education' && <EduManagement />}
+      {selectedMenu === 'Food' && <FoodManagement />}
+      {selectedMenu === 'Employment' && <EmployementManagement />}
     </div>
   );
 };
