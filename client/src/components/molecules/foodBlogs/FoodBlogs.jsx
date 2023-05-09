@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
-import SingleBlog from './SingleBlog'
-import { getAllBlogs } from '@/api/blogs/blogs'
+import React, { useEffect } from "react";
+import SingleBlog from "./SingleBlog";
+import { getAllBlogs, getAllFoodBlogs } from "@/api/blogs/blogs";
 
-const EduBlogs = () => {
-  const [blogs, setBlogs] = React.useState([])
+const FoodBlogs = () => {
+  const [blogs, setBlogs] = React.useState([]);
   useEffect(() => {
-    getAllBlogs().then((response) => {
-      setBlogs(response.data)
-    })
-  }, [])
+    getAllFoodBlogs().then((response) => {
+      setBlogs(response.data);
+    });
+  }, []);
   return (
     <div className="mt-16">
       <div className="flex flex-col">
@@ -25,6 +25,6 @@ const EduBlogs = () => {
       </div>
     </div>
   );
-}
+};
 
-export default EduBlogs
+export default FoodBlogs;

@@ -3,13 +3,13 @@ import SingleBlog from "../eduBlogs/SingleBlog";
 import SingleEvent from "./SingleEvent";
 import { getAllEvents } from "@/api/events/events";
 
-const EduEvents = () => {
-  const [events, setEvents] = React.useState([])
+const FoodEvents = () => {
+  const [events, setEvents] = React.useState([]);
   React.useEffect(() => {
     getAllEvents().then((response) => {
-      setEvents(response.data)
-    })
-  }, [])
+      setEvents(response.data);
+    });
+  }, []);
   return (
     <div className="flex flex-col mt-16">
       <span className="text-2xl font-bold">
@@ -26,4 +26,4 @@ const EduEvents = () => {
   );
 };
 
-export default EduEvents;
+export default FoodEvents;
