@@ -26,7 +26,7 @@ app.use(errorHandlerMiddleware);
 try {
   connectDB();
   app.listen(port, () => {
-    console.log("Server running on port 3000");
+    console.log(`Server running on port ${port}`);
   });
 } catch (error) {
   console.log(error);
