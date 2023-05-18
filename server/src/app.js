@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 
 //MIDDLEWARE
 app.use(cors());
-app.use(Express.json({ limit: '1mb' }));
+app.use(Express.json({ limit: '10mb' }));
 app.use(Express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
@@ -26,7 +26,7 @@ app.use(errorHandlerMiddleware);
 try {
   connectDB();
   app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log("Server running on port 3000");
   });
 } catch (error) {
   console.log(error);

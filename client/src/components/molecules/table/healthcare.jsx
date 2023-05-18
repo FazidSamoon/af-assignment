@@ -45,7 +45,7 @@ const TableComp = () => {
         <tbody>
           {blogs.map((blog) => {
             return (
-              <tr class="bg-secondary-color border-b text-white">
+              <tr class="bg-purple-400 border-b text-white">
                 <th
                   scope="row"
                   class="px-6 py-4 font-medium text-white whitespace-nowrap dark:text-white"
