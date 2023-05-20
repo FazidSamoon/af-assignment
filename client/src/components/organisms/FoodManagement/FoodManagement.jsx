@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import TableComp from "@/components/molecules/table/table";
 import EventTable from "@/components/molecules/table/eventsTable";
 import FoodBlogComp from "@/components/molecules/table/foodBlogComp";
+import Donations from "@/components/molecules/table/donations";
+import Products from "@/components/molecules/Products/Products";
 
 const FoodManagement = () => {
   const { push } = useRouter();
@@ -24,16 +26,18 @@ const FoodManagement = () => {
       </div>
 
       <div className="mt-10 flex flex-col w-full">
-        <span className="text-xl font-semibold mb-5 ">Manage all Events</span>
-        <Button
+        <span className="text-xl font-semibold mb-5 ">All Donations</span>
+        {/* <Button
           text={"Add Event"}
           onClick={() => {
             push("blogs/add-event");
           }}
-        />
+        /> */}
 
-        <EventTable />
+        <Donations />
       </div>
+
+      <Products />
     </div>
   );
 };

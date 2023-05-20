@@ -3,6 +3,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import TableComp from "@/components/molecules/table/table";
 import EventTable from "@/components/molecules/table/eventsTable";
+import ContactUsTable from "@/components/molecules/table/contactsTable";
 
 const EduManagement = () => {
   const { push } = useRouter();
@@ -23,7 +24,7 @@ const EduManagement = () => {
       </div>
 
       <div className="mt-10 flex flex-col w-full">
-      <span className="text-xl font-semibold mb-5 ">Manage all Events</span>
+        <span className="text-xl font-semibold mb-5 ">Manage all Events</span>
         <Button
           text={"Add Event"}
           onClick={() => {
@@ -33,8 +34,13 @@ const EduManagement = () => {
 
         <EventTable />
       </div>
+
+      <div className="mt-10 flex flex-col w-full">
+        <span className="text-xl font-semibold mb-5 ">See All help requests</span>
+
+        <ContactUsTable />
+      </div>
     </div>
-    
   );
 };
 

@@ -1,10 +1,7 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-import Navbar from '@/components/organisms/navbar/Navbar'
+import Head from "next/head";
+import Image from "next/image";
+import Navbar from "@/components/organisms/navbar/Navbar";
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -17,7 +14,32 @@ export default function Home() {
       </Head>
       <main className="">
         <Navbar />
+        <div className="container mx-auto">
+          <Image
+            src={"/Charity-scaled.jpeg"}
+            height={100}
+            width={100}
+            className="w-full h-80 object-cover"
+          />
+          <div className="flex flex-col mt-10">
+            <span className="text-3xl font-bold text-center">
+              Empowering Lives: Your Source for Personal Growth and Support
+            </span>
+            <span className="text-lg mt-5 text-center">
+              Welcome to our website, a dedicated platform committed to helping
+              individuals discover their potential, overcome challenges, and
+              lead fulfilling lives. We believe that everyone deserves support
+              and guidance, which is why we offer a wide range of resources and
+              services tailored to empower you on your journey towards personal
+              growth and well-being. Whether you're seeking practical advice,
+              inspiration, or a supportive community, our website is here to
+              provide the tools and knowledge you need to thrive. Together,
+              let's embark on a transformative path, unlock your true potential,
+              and create a brighter future.
+            </span>
+          </div>
+        </div>
       </main>
     </>
-  )
+  );
 }

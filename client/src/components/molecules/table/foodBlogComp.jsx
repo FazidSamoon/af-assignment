@@ -53,7 +53,7 @@ const FoodBlogComp = () => {
                 <td class="px-6 py-4">{blog.tags}</td>
                 <td class="px-6 py-4">
                   <button
-                    className="bg-primary-color text-white px-4 py-2 rounded-md"
+                    className="bg-primary-color text-white px-4 py-2 rounded-md mr-2"
                     onClick={() => push(`blogs/edit/food/${blog._id}`)}
                   >
                     Edit

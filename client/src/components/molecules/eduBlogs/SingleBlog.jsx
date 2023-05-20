@@ -1,10 +1,16 @@
 import Button from "@/components/atoms/Button/Button";
 import Image from "next/image";
 import React from "react";
+import { useRouter } from "next/router";
 
-const SingleBlog = ({ blog }) => {
+const SingleBlog = ({
+  blog
+}) => {
+  const { push } = useRouter();
   return (
-    <div className="flex flex-col mx-2 my-4">
+    <div className="flex flex-col mx-2 my-4" onClick={() => {
+      push(`/blogs/read/${blog?._id}`);
+    }}>
       <Image
         src={blog?.image}
         width={100}

@@ -60,7 +60,7 @@ const EventTable = () => {
                 <td class="px-6 py-4">{event.time}</td>
                 <td class="px-6 py-4">
                   <button
-                    className="bg-primary-color text-white px-4 py-2 rounded-md"
+                    className="bg-primary-color text-white px-4 py-2 rounded-md mr-2"
                     onClick={() => push(`event/edit/${event._id}`)}
                   >
                     Edit

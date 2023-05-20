@@ -13,10 +13,11 @@ const SingleEvent = ({
         className="w-full h-full"
       />
       <div className="mt-8 lg:mt-0 flex flex-col">
-        <span className="text-lg font-bold mb-2">
+        <span className="text-xl font-bold mb-2">
           {event?.title}
         </span>
-        <span className='text-base font-semibold'>by {event.speaker}</span>
+        <span className='text-lg font-bold'>{event?.description}</span>
+        <span className='mt-2 text-base font-semibold'>by {event.speaker}</span>
         <span className="mt-2 text-base font-semibold">from {event.time}</span>
         <span className="mt-2 text-base font-semibold">at {event.venue}</span>
       </div>

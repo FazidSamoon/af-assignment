@@ -78,9 +78,16 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <Link href="/profile">
-              <Button text="Profile" />
-            </Link>
+            <><Link href="/profile">
+            <Button text="Profile" />
+          </Link>
+          <div className="ml-2">
+          <Link href="/cart">
+            <Button text="shopping cart" />
+          </Link>
+          </div>
+           </>
+            
           )}
         </div>
 
