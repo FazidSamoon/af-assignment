@@ -1,6 +1,6 @@
-import { deleteBlog, getAllBlogs } from "@/api/blogs/blogs";
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { deleteBlog, getAllBlogs } from '@/api/blogs/blogs';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 const TableComp = () => {
   const { push } = useRouter();
@@ -15,25 +15,25 @@ const TableComp = () => {
     deleteBlog(id).then((response) => {
       if (!response.success) alert(response.message);
       else {
-        push("/profile");
+        push('/profile');
       }
     });
   };
   return (
-    <div class="relative overflow-x-auto w-full">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-7">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div className="relative overflow-x-auto w-full">
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-7">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th scope="col" class="px-6 py-3">
+            <th scope="col" className="px-6 py-3">
               Title
             </th>
-            <th scope="col" class="px-6 py-3">
+            <th scope="col" className="px-6 py-3">
               Author
             </th>
-            <th scope="col" class="px-6 py-3">
+            <th scope="col" className="px-6 py-3">
               Tags
             </th>
-            <th scope="col" class="px-6 py-3">
+            <th scope="col" className="px-6 py-3">
               Actions
             </th>
           </tr>

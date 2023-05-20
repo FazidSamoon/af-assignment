@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 
 const navItems = [
@@ -14,12 +15,19 @@ const navItems = [
     path: '/healthcare',
   },
   {
-    name: 'Employment',
-    path: '/employment',
+    name: 'Employement',
+    path: '/employement',
   },
 ];
 
 const ProfileSideNav = ({ setSelectedMenu }) => {
+  const router = useRouter();
+
+  const LogoutHandle = () => {
+    localStorage.removeItem('user');
+    router.push('/');
+  };
+
   return (
     <div className="bg-secondary-color w-1/4 text-white flex flex-col h-screen items-center py-11">
       <span className="text-3xl font-bold">Profile</span>
@@ -34,6 +42,12 @@ const ProfileSideNav = ({ setSelectedMenu }) => {
             {item.name}
           </span>
         ))}
+        <button
+          className="absolute bottom-10 bg-white text-zinc-800 rounded-lg px-6 py-2"
+          onClick={LogoutHandle}
+        >
+          Log out
+        </button>
       </div>
     </div>
   );
